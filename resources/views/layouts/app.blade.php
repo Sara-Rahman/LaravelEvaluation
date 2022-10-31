@@ -50,13 +50,13 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link"  href="">Products</a>
+                                <a class="nav-link"  href="{{route('product.index')}}">Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="">Categories</a>
+                                <a class="nav-link"  href="{{route('category.index')}}">Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="">Sub Categories</a>
+                                <a class="nav-link"  href="{{route('subcategory.index')}}">Sub Categories</a>
                             </li>
                             <li class="nav-item dropdown">
                                 
@@ -86,5 +86,7 @@
             @yield('content')
         </main>
     </div>
+   
 </body>
 </html>
+

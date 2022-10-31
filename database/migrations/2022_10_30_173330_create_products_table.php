@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title',50);
             $table->text('description');
-            $table->bigInteger('subcategory_id');
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('subcategory_id')->constrained('subcategories')->cascadeOnDelete();
             $table->double('price');
-            $table->string('thumbnail');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
         });
     }

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/home', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
+// Root URL
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// For Product
+Route::get('/product',[ProductController::class,'index'])->name('product.index');
+Route::post('/store/product',[ProductController::class,'store'])->name('product.store');
+Route::delete('/delete/product/{id}', [ProductController::class,'destroy']);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/store/product',[ProductController::class,'store'])->name('product.store');
+// For Category
+Route::get('/category',[CategoryController::class,'index'])->name('category.index');
+Route::get('/fetch/category',[CategoryController::class,'fetchCategory'])->name('category.fetch');
+Route::post('/store/category',[CategoryController::class,'store'])->name('category.store');
+Route::delete('/delete/category/{id}', [CategoryController::class,'destroy']);
+    
+
+
+// For Subcategory
+Route::get('/subcategory',[SubCategoryController::class,'index'])->name('subcategory.index');
+Route::post('/store/subcategory',[SubCategoryController::class,'store'])->name('subcategory.store');
+Route::delete('/delete/subcategory/{id}', [SubCategoryController::class,'destroy']);
+
